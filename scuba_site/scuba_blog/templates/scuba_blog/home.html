@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet"  href="{% static 'css/main.css' %}">
+
+    {% if title %}
+        <title>Scuba Blog - {{ title }}</title>
+    {% else %}
+        <title>Scuba Blog</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+        <div class="container">
+          <a id="title" class="navbar-brand mr-4" href="{% url 'scuba_blog-home' %}">DEEP DIVERS</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a id="title" class="nav-item nav-link" href="{% url 'scuba_blog-home' %}">Home</a>
+              <a id="title" class="nav-item nav-link" href="{% url 'scuba_blog-about' %}">Scuba Blog
+              </a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              {% if user.is_authenticated %}
+                <a id="title" class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                <a id="title" class="nav-item nav-link" href="{% url 'logout' %}">Log Out</a>
+              {% else %}
+                <a id="title" class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                <a id="title" class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+          {% endfor %}
+        {% endif %}
+          {% block content %}
+           
+          <div id="title" class="jumbotron  text-center w-100 border border-primary " style=" background-color:rgba(197, 14, 238, 0.1)">
+            <h1 id="title" class="display-4 text-center font-weight-bold ">DEEP DIVERS</h1>
+            <h2 id="title" class="display-5 text-center font-weight-bold ">TO THE DEPTHS</h2>
+              <img style="height: 600px; width: 400px;" id="img border border-primary" src="{% static 'images/pexels-tom-fisk-1312067.jpg' %}" class="img-fluid " alt="Responsive image">
+              <p class="text-info lead text-center mt-5">This is the site for people who love to scuba dive! </p>
+              <hr class="my-4">
+              <p class="text-info text-center">We even have a diving Blog where you can talk about your underwater adventures!</p>
+              <a class="btn btn-info btn-lg " href="{% url 'scuba_blog-about' %}" role="button">GO TO SCUBA BLOG</a>
+          </div>
+          <div id="title" class="card-deck mt-4 shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card border border-primary ">
+              <img style="height: 400px;" class="img-fluid border border-primary" src="{% static 'images/turtle.jpg' %}" alt="My image">
+              <div class="card-body border border-primary">
+                <h5 class="card-title">Sea Turtle</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              <div class="card-footer border border-primary">
+                <small class="text-muted">picture taken 3 months ago
+
+                </small>
+              </div>
+            </div>
+            <div class="card border border-primary">
+              <img style="height: 400px;" src="{% static 'images/pexels-pawel-kalisinski-1076758.jpg' %}" class="card-img-top border border-primary" alt="...">
+              <div class="card-body border border-primary">
+                <h5 class="card-title">Jelly Fish</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              </div>
+              <div class="card-footer border border-primary">
+                <small class="text-muted">picture taken 5 months ago</small>
+              </div>
+            </div>
+            <div class="card border border-primary">
+              <img style="height: 400px;" src="{% static 'images/pexels-jeremy-bishop-2422915 - Copy.jpg' %}" class="card-img-top border border-primary" alt="...">
+              <div class="card-body border border-primary">
+                <h5 class="card-title">Dolphins</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              </div>
+              <div class="card-footer border border-primary">
+                <small class="text-muted">picture taken 2 months ago</small>
+              </div>
+            </div>
+          </div>
+          <div id="title" class="card-deck mt-4 ">
+            <div class="card border border-primary">
+              <img style="height: 400px;" class= "img-fluid" src="{% static 'images/pexels-tirachard-kumtanom-887826.jpg' %}" alt="My image">
+              <div class="card-body border border-primary">
+                <h5 class="card-title">Shallow Dive</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              <div class="card-footer border border-primary">
+                <small class="text-muted">picture taken 9 months ago</small>
+              </div>
+            </div>
+            <div class="card border border-primary">
+              <img style="height: 400px;" src="{% static 'images/pexels-maël-balland-3098980.jpg' %}" class="card-img-top border border-primary" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Deep Dive</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              </div>
+              <div class="card-footer border border-primary">
+                <small class="text-muted">picture taken 6 months ago</small>
+              </div>
+            </div>
+            <div class="card border border-primary">
+              <img style="height: 400px;" src="{% static 'images/pexels-enrico-smeraldi-4050913.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Cave Diving</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              </div>
+              <div class="card-footer border border-primary">
+                <small class="text-muted">picture taken 3 months ago</small>
+              </div>
+            </div>
+          </div>
+          <div id="title" class="card-deck mt-4">
+            <div class="card border border-primary">
+              <img style="height: 400px;" style="height: 400px;" class="img-fluid" src="{% static 'images/pexels-elianne-dipp-4666754 (1).jpg' %}" alt="My image">
+              <div class="card-body">
+                <h5 class="card-title">Sea Turtle</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              <div class="card-footer border border-primary">
+                <small class="text-muted">picture taken 1 year ago</small>
+              </div>
+            </div>
+            <div class="card border border-primary">
+              <img style="height: 400px;" src="{% static 'images/pexels-daniel-torobekov-5289883.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Swimming Turtle</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              </div>
+              <div class="card-footer border border-primary">
+                <small class="text-muted">picture taken 12 months ago</small>
+              </div>
+            </div>
+            <div class="card border border-primary">
+              <img style="height: 400px;" src="{% static 'images/pexels-daniel-torobekov-5349758.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Dolphin From Above</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              </div>
+              <div class="card-footer border border-primary">
+                <small class="text-muted">picture taken 8 months ago</small>
+              </div>
+            </div>
+          </div>
+          {% endblock %}
+ 
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
