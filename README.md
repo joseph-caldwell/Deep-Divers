@@ -1,2 +1,2 @@
 # Deep-Divers
-A diving site with  a blog for divers to talk about dives on. It has registration and full user authentication. Built with Django.
+Scuba diving website with login and registration verification using Django. It also has a blog section where scuba divers can blog about there best dive spots or deepest dives, etc.. Has profile section and if you click on person name it shows all of that persons blogs from newest to oldest.
